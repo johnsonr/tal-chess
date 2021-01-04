@@ -28,3 +28,4 @@ TypeScript engine for chess and other two player zero-sum games.
 ## Chess
 
 - [Algebraic notation](https://en.wikipedia.org/wiki/Algebraic_notation_(chess))
+- [On personality in chess](https://www.chessgames.com/perl/chesscollection?cid=1005503) - Note particularly Botvinnik's comments and how he and Tal sought radically different types of position
