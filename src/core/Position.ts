@@ -36,13 +36,17 @@ export interface Position<M extends Move, ST extends GameState> {
      */
     readonly gameState: ST;
 
+    /**
+     * Return the legal moves from this position. Ordering not guaranteed
+     */
     legalMoves(): M[];
 
     /**
-     * Return the position that results after the given move
+     * Return the position that results after the given move.
+     * The move should be one returned from the legalMoves() method, although there is no
+     * guarantee of checking as this might impact efficiency.
      */
     afterMove(move: M): Position<M, ST>;
-
 
 }
 
