@@ -27,6 +27,8 @@ export interface GameState {
  */
 export interface Position<M extends Move, ST extends GameState> {
 
+  // TODO probably need a unique key for transposition table lookup
+
     readonly playerToMove: White | Black;
 
     readonly gameStatus: GameStatus;

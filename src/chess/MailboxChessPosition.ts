@@ -19,7 +19,7 @@ export enum Piece {
 type Board = Array<Square>[64];
 
 /**
- * Intuitive repsentation of a chessboard.
+ * Simple representation of a chessboard.
  * See https://www.chessprogramming.org/8x8_Board
  */
 export class MailboxChessPosition implements ChessPosition {
@@ -27,6 +27,16 @@ export class MailboxChessPosition implements ChessPosition {
     private board: Board;
 
     get gameStatus() {
+        const legalMoves = this.legalMoves();
+        if (legalMoves.length === 0) {
+            // Either checkmate or stalemate
+            return this.gameState.isCheck ? 
+                this.playerToMove === White ? GameStatus.BlackWin : GameStatus.WhiteWin :
+                GameStatus.Draw;
+        }
+
+        // TODO consider draw by repetition and 50 move rule. 
+        // Former may come from transposition table
         return GameStatus.Continuing;
     }
 
@@ -35,6 +45,7 @@ export class MailboxChessPosition implements ChessPosition {
     }
 
     get playerToMove(): White | Black {
+        // TODO implement this
         return White;
     }
     
