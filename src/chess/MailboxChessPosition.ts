@@ -18,6 +18,10 @@ export enum Piece {
 
 type Board = Array<Square>[64];
 
+/**
+ * Intuitive repsentation of a chessboard.
+ * See https://www.chessprogramming.org/8x8_Board
+ */
 export class MailboxChessPosition implements ChessPosition {
 
     private board: Board;
