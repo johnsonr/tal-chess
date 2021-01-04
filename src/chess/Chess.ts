@@ -1,5 +1,7 @@
 
+import { Evaluator, Score } from "../core/Evaluator";
 import * as core from "../core/Position";
+import { Searcher } from "../core/Search";
 
 export interface ChessPosition extends core.Position<ChessMove, ChessGameState> {
 
@@ -16,7 +18,7 @@ export interface ChessGameState extends core.GameState {
     isCheck: boolean;
 }
 
-export interface ChessScore extends core.Score {
+export interface ChessScore extends Score {
     value: number;
 
     /**
@@ -25,8 +27,16 @@ export interface ChessScore extends core.Score {
     preference?: number;
 }
 
+/**
+ * Create positions from serialized representation.
+ * See https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation
+ */
 export interface ChessPositionFactory {
 
     fromFEN(fen: string): ChessPosition;
 
 }
+
+export type ChessEvaluator = Evaluator<ChessMove, ChessGameState, ChessScore>;
+
+export type ChessSearcher = Searcher<ChessMove, ChessGameState, ChessScore>;
