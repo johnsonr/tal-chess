@@ -16,6 +16,11 @@ export interface ChessGameState extends core.GameState {
     whiteCanCastle: boolean;
     blackCanCastle: boolean;
     isCheck: boolean;
+
+    // TODO need to consider previous move to handle en passant rule
+
+    // TODO consider 50 move rule, so need count since capture
+
 }
 
 export interface ChessScore extends Score {
