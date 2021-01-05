@@ -8,9 +8,18 @@ This page details all runtime dependencies of `tal`.
 
 ### Summary
 
-| License | Count |
-| ------- | ----- |
+| License     | Count |
+| ----------- | ----- |
+| [MIT](#mit) | 2     |
 
+#### MIT
+
+MIT License - [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
+
+| Name            | Version    | Publisher         | Repository                                                                                               |
+| --------------- | ---------- | ----------------- | -------------------------------------------------------------------------------------------------------- |
+| `@types/lodash` | `4.14.167` |                   | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) |
+| `lodash`        | `4.17.20`  | John-David Dalton | [https://github.com/lodash/lodash](https://github.com/lodash/lodash)                                     |
 
 ## Contact
 
