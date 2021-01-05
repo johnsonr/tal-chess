@@ -110,20 +110,20 @@ export class MailboxChessPosition implements ChessPosition {
     legalMoves(): ChessMove[] {
         const moves: ChessMove[] = [];
         for (let sq = 0; sq < 64; sq++) {
-            switch (this.board[sq].piece) {
-                case undefined:
-                    break;
-                case Piece.Knight:
-                    const allMovesOnBoard = KnightMoves.map(knm => sq + knm).filter(legalSquare);
-                    for (let toSq of allMovesOnBoard) {
-                        moves.push({ from: sq, to: toSq});
-                    }
-                    // TODO filter out our pieces
-                    break;
-                default:
-                    console.log(`Unsupported piece ${this.board[sq].piece}`);
-                    break;
+            if (this.board[sq].piece && this.board[sq].color === this.playerToMove) {
+                switch (this.board[sq].piece) {
+                    case Piece.Knight:
+                        const allMovesOnBoard = KnightMoves.map(knm => sq + knm).filter(legalSquare);
+                        for (let toSq of allMovesOnBoard) {
+                            moves.push({ from: sq, to: toSq});
+                        }
+                        // TODO filter out our pieces
+                        break;
+                    default:
+                        console.log(`Unsupported piece ${this.board[sq].piece}`);
+                        break;
 
+                }
             }
         }
 
