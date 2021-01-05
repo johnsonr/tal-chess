@@ -18,7 +18,7 @@ export enum Piece {
     Pawn =1, Knight =2, Bishop = 3, Rook = 4, Queen = 5, King = 6
 }
 
-const North = +8, South = +8, East = +1, West = -1;
+const North = +8, South = -North, East = +1, West = -East;
 
 // Not all these moves may be legal. Some may be off the board
  const KnightMoves = [ 
@@ -113,6 +113,8 @@ export class MailboxChessPosition implements ChessPosition {
             if (this.board[sq].piece && this.board[sq].color === this.playerToMove) {
                 switch (this.board[sq].piece) {
                     case Piece.Knight:
+                        // TODO Knights can hop over illegal squares.
+                        // Should we precompute these?
                         const allMovesOnBoard = KnightMoves.map(knm => sq + knm).filter(legalSquare);
                         for (let toSq of allMovesOnBoard) {
                             moves.push({ from: sq, to: toSq});
