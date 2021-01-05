@@ -16,7 +16,7 @@ TypeScript engine for chess and other two player zero-sum games.
 
 # Possible future goals
 
-- Opening book, possibly derived from games played by chosen personalities
+- Opening book, possibly derived from games played by chosen personalities. An opening book may be supplied by a GUI when running under UCI.
 
 # References
 
